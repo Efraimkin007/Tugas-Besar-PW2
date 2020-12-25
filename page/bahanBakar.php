@@ -12,7 +12,20 @@
                     <label >ID Bahan Bakar </label>
                 </div>
                 <div >
-                    <input class="input--style-4" type="text" name="txtArtName" placeholder="ID Bahan Bakar" required=""/>
+                    <input class="input--style-4" type="text" name="txtIdBahanBakar" placeholder="ID Bahan Bakar" required=""/>
+                    <label ></label>
+                    <label ></label>
+                </div>
+
+            </div>
+        </div>
+        <div >
+            <div class="col-2">
+                <div >
+                    <label >Tanggal  </label>
+                </div>
+                <div >
+                    <input class="input--style-4" type="text" name="txtTanggalPerubahan" placeholder="Tanggal" required=""/>
                     <label ></label>
                     <label ></label>
                 </div>
@@ -25,7 +38,7 @@
                     <label>Jenis Bahan Bakar</label>
                 </div>
                 <div >
-                    <input class="input--style-4" type="text" name="txtDebName" placeholder="Jenis" required=""/>
+                    <input class="input--style-4" type="text" name="txtJenisBahanBakar" placeholder="Jenis" required=""/>
                     <label ></label>
                     <label ></label>
                 </div>
@@ -37,7 +50,7 @@
                     <label >Harga Modal</label>
                 </div>
                 <div>
-                    <input class="input--style-4" type="text" name="txtDebName" placeholder="Harga Modal" required=""/>
+                    <input class="input--style-4" type="text" name="txtHargaModal" placeholder="Harga Modal" required=""/>
                     <label ></label>
                     <label ></label>
                 </div>
@@ -49,7 +62,7 @@
                     <label >Harga Jual</label>
                 </div>
                 <div>
-                    <input class="input--style-4" type="text" name="txtDebName" placeholder="Harga Jual" required=""/>
+                    <input class="input--style-4" type="text" name="txtHargaJual" placeholder="Harga Jual" required=""/>
                     <label ></label>
                     <label ></label>
                 </div>
