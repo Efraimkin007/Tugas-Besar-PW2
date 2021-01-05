@@ -21,16 +21,6 @@
         </div>
         <div >
             <div class="col-2">
-                <div >
-                    <label >Tanggal  </label>
-                </div>
-                <div >
-                    <input class="input--style-4" type="text" name="txtTanggalPerubahan" placeholder="Tanggal" required=""/>
-                    <label ></label>
-                    <label ></label>
-                </div>
-
-            </div>
         </div>
         <div >
             <div class="col-2">
@@ -78,35 +68,35 @@
     <table id="tableId" class="display">
         <thead>
         <tr>
-            <th>ID Bahan Bakar</th>
-            <th>Jenis</th>
-            <th>Harga Modal</th>
-            <th>Harga Jual</th>
+            <th>ID Bahan Bakar&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Jenis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Harga Modal&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Harga Jual&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Action</th>
 
         </tr>
         </thead>
         <tbody>
         <?php
-
+        foreach ($result as $row){
             ?>
             <tr>
-                <td>EmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>EmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>EmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>EmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $row->getIdBahanBakar();?></td>
+                <td><?php echo $row->getJenisBahanBakar();?>&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $row->getHargaModal();?></td>
+                <td><?php echo $row->getHargaJual();?></td>
                 <?php
                     ?>
                     <td>
                         <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateBahanBakar()" name="btnUpdate" value="Update"/>
-                        <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteBahanBakar()" name="btnDelete" value="Delete"/>
+                        <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteBahanBakar(<?php echo $row->getIdBahanBakar();?>)" name="btnDelete" value="Delete"/>
                     </td>
                     <?php
 
                 ?>
             </tr>
             <?php
-
+        }
         $link=null;
         ?>
         </tbody>

@@ -1,36 +1,36 @@
 <?php
 
 
-class PelangganDAOimpl
+class PegawaiDAOimpl
 {
-    public function fetchPelangganData(){
+    public function fetchPegawaiData(){
         $link = PDOUtil::createConnection();
-        $query = "SELECT * FROM pelangggan";
+        $query = "SELECT * FROM pegawai";
         $result=$link->query($query);
-        $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,'Pelanggan');
+        $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,'Pegawai');
         PDOUtil::closeConnection($link);
         return $result;
     }
 
-    public function fetchOnePelanggan($cid){
+    public function fetchOnePegawai($cid){
         $link = PDOUtil::createConnection();
-        $query = "SELECT * FROM pelangggan WHERE idPelanggan=?";
+        $query = "SELECT * FROM pegawai WHERE idPegawai=?";
         $stmt = $link->prepare($query);
         $stmt->bindParam(1,$cid);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt ->execute();
-        $result = $stmt->fetchObject('Pelanggan');
+        $result = $stmt->fetchObject('Pegawai');
         PDOUtil::closeConnection($link);
         return $result;
     }
 
-    public function addPelanggan(Pelanggan $pelanggan){
+    public function addPegawai(Pegawai $pegawai){
         $link = PDOUtil::createConnection();
-        $query = "INSERT into pelangggan(idPelanggan,NamaPelanggan,StatusMember) VALUES(?,?,?)";
+        $query = "INSERT into pegawai(idPegawai,NamaPegawai,AkumulasiNilai) VALUES(?,?,?)";
         $stmt = $link->prepare($query);
-        $stmt->bindValue(1,$pelanggan->getIdPelanggan());
-        $stmt->bindValue(2,$pelanggan->getNamaPelanggan());
-        $stmt->bindValue(3,$pelanggan->getStatusMember());
+        $stmt->bindValue(1,$pegawai->getIdPegawai());
+        $stmt->bindValue(2,$pegawai->getNamaPegawai());
+        $stmt->bindValue(3,$pegawai->getAkumulasiNilai());
 
 
         $link->beginTransaction();
@@ -42,10 +42,10 @@ class PelangganDAOimpl
         PDOUtil::closeConnection($link);
     }
 
-    public function deletePelanggan($delete){
-        $pelanggan = fetchOnePelanggan($delete);
+    public function deletePegawai($delete){
+        $pelanggan = fetchOnePegawai($delete);
         $link = PDOUtil::createConnection();
-        $query = "DELETE FROM pelangggan WHERE idPelangggan=?";
+        $query = "DELETE FROM pegawai WHERE idPegawai=?";
         $stmt = $link->prepare($query);
         $stmt->bindParam(1,$delete);
         $link->beginTransaction();
@@ -56,13 +56,13 @@ class PelangganDAOimpl
         }
         PDOUtil::closeConnection($link);
     }
-    public function updatePelanggan(Pelanggan $pelanggan){
+    public function updatePegawai(Pegawai $pegawai){
         $link = PDOUtil::createConnection();
-        $query = "UPDATE pelangggan SET idPelanggan=? ,NamaPelanggan=? ,StatusMember=?  WHERE idPelanggan=?";
+        $query = "UPDATE pegawai SET idPegawai=? ,NamaPegawai=? ,AkumulasiNilai=?  WHERE idPelanggan=?";
         $stmt = $link->prepare($query);
-        $stmt->bindValue(1, $pelanggan->getIdPelanggan());
-        $stmt->bindValue(2, $pelanggan->getNamaPelanggan());
-        $stmt->bindValue(3, $pelanggan->getStatusMember());
+        $stmt->bindValue(1, $pegawai->getIdPegawai());
+        $stmt->bindValue(2, $pegawai->getNamaPegawai());
+        $stmt->bindValue(3, $pegawai->getAkumulasiNilai());
 
         $link->beginTransaction();
         if ($stmt->execute()) {
@@ -72,7 +72,5 @@ class PelangganDAOimpl
         }
         PDOUtil::closeConnection($link);
     }
-
-
 
 }

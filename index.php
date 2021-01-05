@@ -10,6 +10,20 @@ include_once 'entity/Pelanggan.php';
 include_once 'entity/Transaksi.php';
 include_once 'entity/User.php';
 
+include_once 'DAO/BahanBakarDAOimpl.php';
+include_once 'DAO/MemberDAOimpl.php';
+include_once 'DAO/PelangganDAOimpl.php';
+include_once 'DAO/TransaksiDAOimpl.php';
+include_once 'DAO/UserDAOimpl.php';
+include_once 'DAO/PegawaiDAOimpl.php';
+
+
+include_once 'controller/bahanBakarController.php';
+include_once 'controller/pelangganController.php';
+include_once 'controller/pegawaiController.php';
+
+
+
 
 ?>
 
@@ -72,14 +86,14 @@ include_once 'entity/User.php';
 
         //Navigasi Bahan Bakar
         case 'bahanBakar':
-            include_once './page/bahanBakar.php';
-            $title = 'Bahan Bakar';
+            $bahanBakarController = new bahanBakarController();
+            $bahanBakarController->index();
             break;
 
         //Navigasi Data Pegawai
         case 'dataPegawai':
-            include_once './page/dataPegawai.php';
-            $title = 'Data Pegawai';
+            $pegawaiController = new pegawaiController();
+            $pegawaiController->index();
             break;
 
         //Navigasi Member
@@ -97,8 +111,8 @@ include_once 'entity/User.php';
 
         //Navigasi Sign Up
         case 'signUp':
-            include_once './page/signUp.php';
-            $title = 'Sign Up';
+            $pelangganController = new pelangganController();
+            $pelangganController->index();
             break;
 
         //Navigasi Login

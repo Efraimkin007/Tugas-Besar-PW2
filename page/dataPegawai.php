@@ -54,9 +54,9 @@
     <table id="tableId" class="display">
         <thead>
         <tr>
-            <th>ID Pegawai</th>
-            <th>Nama Pegawai</th>
-            <th>Akumulasi Nilai</th>
+            <th>ID Pegawai&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Nama Pegawai&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Akumulasi Nilai&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Action </th>
 
 
@@ -64,26 +64,25 @@
         </thead>
         <tbody>
         <?php
-
+        foreach ($result as $row){
         ?>
         <tr>
-            <td>EmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>EmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>EmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+            <td><?php echo $row->getIdPegawai();?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><?php echo $row->getNamaPegawai();?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><?php echo $row->getAkumulasiNilai();?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
             <?php
             ?>
             <td>
-                <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateBahanBakar()" name="btnUpdate" value="Update"/>
-                <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteBahanBakar()" name="btnDelete" value="Delete"/>
+                <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updatePegawai()" name="btnUpdate" value="Update"/>
+                <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deletePegawai()" name="btnDelete" value="Delete"/>
             </td>
             <?php
 
             ?>
         </tr>
         <?php
-
+        }
         $link=null;
         ?>
         </tbody>

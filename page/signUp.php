@@ -53,22 +53,22 @@
     <table id="tableId" class="display">
         <thead>
         <tr>
-            <th>ID Pelangaan</th>
-            <th>Nama Pelanggan</th>
-            <th>Status member</th>
+            <th>ID Pelanggan&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Nama Pelanggan&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Status member&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Action</th>
 
         </tr>
         </thead>
         <tbody>
         <?php
+        foreach ($result as $row){
 
         ?>
         <tr>
-            <td>EmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>EmptyEmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>EmptyEmptyEmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+            <td><?php echo $row->getIdPelanggan();?></td>
+            <td><?php echo $row->getNamaPelanggan();?></td>
+            <td><?php echo $row->getStatusMember();?></td>
 
             <?php
             ?>
@@ -81,7 +81,7 @@
             ?>
         </tr>
         <?php
-
+        }
         $link=null;
         ?>
         </tbody>
