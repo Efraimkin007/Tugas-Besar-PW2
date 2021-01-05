@@ -1,9 +1,16 @@
 <?php
-/*include_once '';
-include_once '';
-include_once '';
-include_once '';
-include_once '';*/
+include_once 'util/db_util.php';
+include_once 'util/PDOUtil.php';
+
+include_once 'entity/BahanBakar.php';
+include_once 'entity/DetailBahanBakar.php';
+include_once 'entity/Member.php';
+include_once 'entity/Pegawai.php';
+include_once 'entity/Pelanggan.php';
+include_once 'entity/Transaksi.php';
+include_once 'entity/User.php';
+
+
 ?>
 
 <html>
