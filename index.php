@@ -1,5 +1,4 @@
 <?php
-include_once 'util/db_util.php';
 include_once 'util/PDOUtil.php';
 
 include_once 'entity/BahanBakar.php';
@@ -21,9 +20,6 @@ include_once 'DAO/PegawaiDAOimpl.php';
 include_once 'controller/bahanBakarController.php';
 include_once 'controller/pelangganController.php';
 include_once 'controller/pegawaiController.php';
-
-
-
 
 ?>
 
@@ -88,6 +84,12 @@ include_once 'controller/pegawaiController.php';
         case 'bahanBakar':
             $bahanBakarController = new bahanBakarController();
             $bahanBakarController->index();
+            break;
+
+        //Navigasi Bahan Bakar
+        case 'bahanBakarUpdate':
+            $bahanBakarController = new bahanBakarController();
+            $bahanBakarController->update();
             break;
 
         //Navigasi Data Pegawai

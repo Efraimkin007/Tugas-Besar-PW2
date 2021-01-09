@@ -75,7 +75,7 @@
             ?>
             <td>
                 <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updatePegawai()" name="btnUpdate" value="Update"/>
-                <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deletePegawai()" name="btnDelete" value="Delete"/>
+                <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deletePegawai(<?php echo $row->getIdPegawai(); ?>)" name="btnDelete" value="Delete"/>
             </td>
             <?php
 

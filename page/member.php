@@ -116,8 +116,8 @@
             <?php
             ?>
             <td>
-                <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateBahanBakar()" name="btnUpdate" value="Update"/>
-                <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteBahanBakar()" name="btnDelete" value="Delete"/>
+                <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateMember()" name="btnUpdate" value="Update"/>
+                <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteMember()" name="btnDelete" value="Delete"/>
             </td>
             <?php
 

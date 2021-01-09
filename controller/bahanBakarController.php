@@ -40,9 +40,43 @@ class bahanBakarController
                 echo '<div class="bg-error">Error add data</div>';
             }
         }
+
         $result = $this->bahanBakarDao->fetchBahanBakarData();
         include_once 'page/bahanBakar.php';
 
+    }
+    public function update(){
+        $bahanBakarDao = new BahanBakarDAOimpl();
+
+        $cid = filter_input(INPUT_GET,'cid');
+        if(isset($cid)){
+            $result=$this->bahanBakarDao->fetchOneBahanBakar($cid);
+        }
+
+        $submitPressed= filter_input(INPUT_POST,"btnSubmit");
+        if($submitPressed){
+            //get Data dari form
+            $jenis = filter_input(INPUT_POST,"txtJenisBahanBakar");
+            $modal = filter_input(INPUT_POST,"txtHargaModal");
+            $jual = filter_input(INPUT_POST,"txtHargaJual");
+
+
+            $updatedBahanBakar = new BahanBakar();
+            $updatedBahanBakar-> setIdBahanBakar($result -> getIdBahanBakar());
+            $updatedBahanBakar-> setJenisBahanBakar($jenis);
+            $updatedBahanBakar-> setHargaModal($modal);
+            $updatedBahanBakar-> setHargaJual($jual);
+
+
+            //connect ke DB
+
+            $this->bahanBakarDao->updateBahanBakar($updatedBahanBakar);
+
+            header("location:index.php?page=bahanBakar");
+
+        }
+        $result = $this->bahanBakarDao->fetchOneBahanBakar($cid);
+        include_once 'CUD/updateBahanBakar.php';
     }
 
 }

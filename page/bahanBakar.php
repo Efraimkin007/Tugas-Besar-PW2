@@ -88,7 +88,7 @@
                 <?php
                     ?>
                     <td>
-                        <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateBahanBakar()" name="btnUpdate" value="Update"/>
+                        <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateBahanBakar(<?php echo $row->getIdBahanBakar();?>)" name="btnUpdate" value="Update"/>
                         <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteBahanBakar(<?php echo $row->getIdBahanBakar();?>)" name="btnDelete" value="Delete"/>
                     </td>
                     <?php
