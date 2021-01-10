@@ -1,9 +1,30 @@
 <?php
-/*include_once '';
-include_once '';
-include_once '';
-include_once '';
-include_once '';*/
+include_once 'util/db_util.php';
+include_once 'util/PDOUtil.php';
+
+include_once 'entity/BahanBakar.php';
+include_once 'entity/DetailBahanBakar.php';
+include_once 'entity/Member.php';
+include_once 'entity/Pegawai.php';
+include_once 'entity/Pelanggan.php';
+include_once 'entity/Transaksi.php';
+include_once 'entity/User.php';
+
+include_once 'DAO/BahanBakarDAOimpl.php';
+include_once 'DAO/MemberDAOimpl.php';
+include_once 'DAO/PelangganDAOimpl.php';
+include_once 'DAO/TransaksiDAOimpl.php';
+include_once 'DAO/UserDAOimpl.php';
+include_once 'DAO/PegawaiDAOimpl.php';
+
+
+include_once 'controller/bahanBakarController.php';
+include_once 'controller/pelangganController.php';
+include_once 'controller/pegawaiController.php';
+
+
+
+
 ?>
 
 <html>
@@ -13,6 +34,10 @@ include_once '';*/
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/metaOilANS.css">
+<link rel="stylesheet" type="text/css" href="css/datatables.css">
+<link rel="stylesheet" type="text/css" href="css/web_style.css">
+
+
 
 <header>
     <div class="container-fluid">
@@ -61,14 +86,14 @@ include_once '';*/
 
         //Navigasi Bahan Bakar
         case 'bahanBakar':
-            include_once './page/bahanBakar.php';
-            $title = 'Bahan Bakar';
+            $bahanBakarController = new bahanBakarController();
+            $bahanBakarController->index();
             break;
 
         //Navigasi Data Pegawai
         case 'dataPegawai':
-            include_once './page/dataPegawai.php';
-            $title = 'Data Pegawai';
+            $pegawaiController = new pegawaiController();
+            $pegawaiController->index();
             break;
 
         //Navigasi Member
@@ -86,8 +111,8 @@ include_once '';*/
 
         //Navigasi Sign Up
         case 'signUp':
-            include_once './page/signUp.php';
-            $title = 'Sign Up';
+            $pelangganController = new pelangganController();
+            $pelangganController->index();
             break;
 
         //Navigasi Login

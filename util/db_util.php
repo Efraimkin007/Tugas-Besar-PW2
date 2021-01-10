@@ -1,6 +1,6 @@
 <?php
 function createConnection(){
-    $link = new PDO("mysql:host=localhost;dbname=#","root","");
+    $link = new PDO("mysql:host=localhost;dbname=tubespw2(1)","root","");
     $link->setAttribute(PDO::ATTR_AUTOCOMMIT, false);
     $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $link;
