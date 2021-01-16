@@ -3,15 +3,15 @@
 
 class UserDAOimpl
 {
-    public function login(User $user){
+    public function login($user) {
         $link = PDOUtil::createConnection();
-        $query = "SELECT * FROM user WHERE username=? AND password = ?";
-        $stmt = $link -> prepare($query);
+        $query = "SELECT * FROM user WHERE username = ? AND password = ?";
+        $stmt = $link->prepare($query);
         $stmt->bindValue(1,$user->getUsername());
         $stmt->bindValue(2,$user->getPassword());
-        $stmt ->execute();
-        $result = $stmt->fetch();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->execute();
         PDOUtil::closeConnection($link);
-        return $result;
+        return $stmt->fetchObject('User');
     }
 }
