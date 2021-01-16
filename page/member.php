@@ -1,4 +1,7 @@
 <section>
+    <?php
+    if($_SESSION['my_session']){
+        ?>
     <h2>Form Member</h2>
     <label ></label>
     <label ></label>
@@ -88,6 +91,11 @@
     </form>
 
     <br/>
+    <?php
+}
+
+
+?>
     <table id="tableId" class="display">
         <thead>
         <tr>
@@ -114,12 +122,15 @@
             <td>EmptyEmpty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
             <?php
+            if($_SESSION['my_session']){
+
             ?>
             <td>
                 <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateMember()" name="btnUpdate" value="Update"/>
                 <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteMember()" name="btnDelete" value="Delete"/>
             </td>
             <?php
+            }
 
             ?>
         </tr>

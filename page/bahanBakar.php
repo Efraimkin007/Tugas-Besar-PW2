@@ -1,6 +1,7 @@
 <section>
     <?php
     echo "Harga : Rp. 10000 - Poin 10";
+    if($_SESSION['my_session']){
     ?>
     <h2>Form Bahan Bakar</h2>
     <label ></label>
@@ -65,6 +66,12 @@
     </form>
 
     <br/>
+
+        <?php
+    }
+
+
+    ?>
     <table id="tableId" class="display">
         <thead>
         <tr>
@@ -86,13 +93,15 @@
                 <td><?php echo $row->getHargaModal();?></td>
                 <td><?php echo $row->getHargaJual();?></td>
                 <?php
-                    ?>
+                if($_SESSION['my_session']){
+
+                ?>
                     <td>
                         <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updateBahanBakar(<?php echo $row->getIdBahanBakar();?>)" name="btnUpdate" value="Update"/>
                         <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deleteBahanBakar(<?php echo $row->getIdBahanBakar();?>)" name="btnDelete" value="Delete"/>
                     </td>
                     <?php
-
+                }
                 ?>
             </tr>
             <?php

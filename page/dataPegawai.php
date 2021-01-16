@@ -1,4 +1,7 @@
 <section>
+    <?php
+    if($_SESSION['my_session']){
+    ?>
     <h2>Form Pegawai</h2>
     <label ></label>
     <label ></label>
@@ -51,6 +54,12 @@
     </form>
 
     <br/>
+        <?php
+    }
+
+
+    ?>
+
     <table id="tableId" class="display">
         <thead>
         <tr>
@@ -72,13 +81,15 @@
             <td><?php echo $row->getAkumulasiNilai();?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
             <?php
+            if($_SESSION['my_session']){
+
             ?>
             <td>
                 <input type="button" class="btn btn--radius-2 btn--pill btn--green" onclick="updatePegawai()" name="btnUpdate" value="Update"/>
                 <input type="button" class="btn btn--radius-2 btn--pill btn--red" onclick="deletePegawai(<?php echo $row->getIdPegawai(); ?>)" name="btnDelete" value="Delete"/>
             </td>
             <?php
-
+            }
             ?>
         </tr>
         <?php

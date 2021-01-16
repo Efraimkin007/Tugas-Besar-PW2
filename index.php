@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once 'util/db_util.php';
 include_once 'util/PDOUtil.php';
 
 include_once 'entity/BahanBakar.php';
@@ -28,9 +27,6 @@ include_once 'controller/UserController.php';
 if (!isset($_SESSION['my_session'])) {
     $_SESSION['my_session'] = false;
 }
-
-
-
 ?>
 
 <html>
@@ -127,11 +123,22 @@ if (!isset($_SESSION['my_session'])) {
             $title = 'Login';
             break;
 
+        case 'logout':
+            $userController = new UserController();
+            $userController->logout();
+            break;
+
         //Default Beranda
         default:
-            include_once './page/home.php';
-            $title = 'Beranda';
-            break;
+            if($_SESSION['my_session']) {
+                include_once './page/home.php';
+                $title = 'Beranda';
+                break;
+            }
+            else{
+                $userController = new UserController();
+                $userController->login();
+            }
     }
     ?>
 </main>
