@@ -19,6 +19,7 @@ include_once 'DAO/PegawaiDAOimpl.php';
 
 
 include_once 'controller/bahanBakarController.php';
+include_once 'controller/memberController.php';
 include_once 'controller/pelangganController.php';
 include_once 'controller/pegawaiController.php';
 include_once 'controller/UserController.php';
@@ -59,6 +60,14 @@ if (!isset($_SESSION['my_session'])) {
                 <li><a href="?page=member">Member</a></li>
                 <li><a href="?page=dataPegawai">Data Pegawai</a></li>
                 <li><a href="?page=calendar">Calendar</a></li>
+                <?php
+                if($_SESSION['my_session']){
+                ?>
+                <li><a href="?page=logout">Logout</a></li>
+                    <?php
+                }
+                ?>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="?page=signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -100,8 +109,8 @@ if (!isset($_SESSION['my_session'])) {
 
         //Navigasi Member
         case 'member':
-            include_once './page/member.php';
-            $title = 'Member';
+            $memberController = new memberController();
+            $memberController->index();
             break;
 
 
