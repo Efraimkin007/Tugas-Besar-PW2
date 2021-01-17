@@ -10,10 +10,15 @@ class pegawaiController
     public function index(){
         $command= filter_input(INPUT_GET,"cmd");
         if(isset ($command)&& $command=="del") {
-            $idPegawai = filter_input(INPUT_GET, "cid");
+            $cid = filter_input(INPUT_GET, "cid");
             //connect ke DB
-            if (isset($idPegawai)) {
-                $this->pegawaiDao->deletePegawai($idPegawai);
+            if (isset($cid)) {
+                $result = $this->pegawaiDao->deletePegawai($cid);
+                if ($result) {
+                    echo '<div class="bg-success">Data Successfully deleted</div>';
+                } else {
+                    echo '<div class="bg-error">Delete Failed</div>';
+                }
             }
         }
 
