@@ -12,7 +12,7 @@ class MemberDAOimpl
         return $result;
     }
 
-    public function fetchOneMember($cid){
+    /*public function fetchOneMember($cid){
         $link = PDOUtil::createConnection();
         $query = "SELECT * FROM member WHERE idMember=?";
         $stmt = $link->prepare($query);
@@ -22,7 +22,7 @@ class MemberDAOimpl
         $result = $stmt->fetchObject('Member');
         PDOUtil::closeConnection($link);
         return $result;
-    }
+    }*/
 
     public function addMember(Member $member){
         $link = PDOUtil::createConnection();
@@ -45,7 +45,7 @@ class MemberDAOimpl
     }
 
     public function deleteMember($delete){
-        $member = fetchOneMember($delete);
+        //$member = fetchOneMember($delete);
         $link = PDOUtil::createConnection();
         $query = "DELETE FROM member WHERE idMember=?";
         $stmt = $link->prepare($query);

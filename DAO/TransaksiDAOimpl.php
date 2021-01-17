@@ -12,7 +12,7 @@ class TransaksiDAOimpl
         return $result;
     }
 
-    public function fetchOneTransaksi($cid){
+    /*public function fetchOneTransaksi($cid){
         $link = PDOUtil::createConnection();
         $query = "SELECT * FROM transaksi WHERE idTransaksi=?";
         $stmt = $link->prepare($query);
@@ -22,7 +22,7 @@ class TransaksiDAOimpl
         $result = $stmt->fetchObject('Transaksi');
         PDOUtil::closeConnection($link);
         return $result;
-    }
+    }*/
 
     public function addTransaksi(Transaksi $transaksi){
         $link = PDOUtil::createConnection();
@@ -46,7 +46,7 @@ class TransaksiDAOimpl
     }
 
     public function deleteTransaksi($delete){
-        $member = fetchOneTransaksi($delete);
+        //$member = fetchOneTransaksi($delete);
         $link = PDOUtil::createConnection();
         $query = "DELETE FROM transaksi WHERE idTransaksi=?";
         $stmt = $link->prepare($query);

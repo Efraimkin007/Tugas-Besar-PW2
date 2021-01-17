@@ -12,7 +12,7 @@ class BahanBakarDAOimpl
         return $result;
     }
 
-    public function fetchOneBahanBakar($cid){
+   /* public function fetchOneBahanBakar($cid){
         $link = PDOUtil::createConnection();
         $query = "SELECT * FROM bahanbakar WHERE idBahanBakar=?";
         $stmt = $link->prepare($query);
@@ -22,7 +22,7 @@ class BahanBakarDAOimpl
         $result = $stmt->fetchObject('BahanBakar');
         PDOUtil::closeConnection($link);
         return $result;
-    }
+    }*/
 
     public function addBahanBakar(BahanBakar $bahanBakar){
         $link = PDOUtil::createConnection();
@@ -63,7 +63,8 @@ class BahanBakarDAOimpl
     }
 
     public function deleteBahanBakar($delete){
-        $bahanBakar = fetchOneBahanBakar($delete);
+        //$bahanBakar = fetchOneBahanBakar($delete);
+        $result = 0;
         $link = PDOUtil::createConnection();
         $query = "DELETE FROM bahanbakar WHERE idBahanBakar=?";
         $stmt = $link->prepare($query);
@@ -71,10 +72,12 @@ class BahanBakarDAOimpl
         $link->beginTransaction();
         if ($stmt->execute()) {
             $link->commit();
+            $result = 1;
         } else {
             $link->rollBack();
         }
         PDOUtil::closeConnection($link);
+        return $result;
     }
 
 

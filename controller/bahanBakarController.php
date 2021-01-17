@@ -10,10 +10,15 @@ class bahanBakarController
     public function index(){
         $command= filter_input(INPUT_GET,"cmd");
         if(isset ($command)&& $command=="del") {
-            $idBahanBakar = filter_input(INPUT_GET, "cid");
+            $cid = filter_input(INPUT_GET, "cid");
             //connect ke DB
-            if (isset($idBahanBakar)) {
-                $this->bahanBakarDao->deleteBahanBakar($idBahanBakar);
+            if (isset($cid)) {
+                $result = $this->bahanBakarDao->deleteBahanBakar($cid);
+                if ($result) {
+                    echo '<div class="bg-success">Data Successfully deleted</div>';
+                } else {
+                    echo '<div class="bg-error">Delete Failed</div>';
+                }
             }
         }
 
@@ -50,19 +55,20 @@ class bahanBakarController
 
         $cid = filter_input(INPUT_GET,'cid');
         if(isset($cid)){
-            $result=$this->bahanBakarDao->fetchOneBahanBakar($cid);
+            //$result=$this->bahanBakarDao->fetchOneBahanBakar($cid);
         }
 
         $submitPressed= filter_input(INPUT_POST,"btnSubmit");
         if($submitPressed){
             //get Data dari form
+            $idBahanBakar=filter_input(INPUT_POST,"txtIdBahanBakar");
             $jenis = filter_input(INPUT_POST,"txtJenisBahanBakar");
             $modal = filter_input(INPUT_POST,"txtHargaModal");
             $jual = filter_input(INPUT_POST,"txtHargaJual");
 
 
             $updatedBahanBakar = new BahanBakar();
-            $updatedBahanBakar-> setIdBahanBakar($result -> getIdBahanBakar());
+            $updatedBahanBakar-> setIdBahanBakar($idBahanBakar);
             $updatedBahanBakar-> setJenisBahanBakar($jenis);
             $updatedBahanBakar-> setHargaModal($modal);
             $updatedBahanBakar-> setHargaJual($jual);
@@ -75,7 +81,7 @@ class bahanBakarController
             header("location:index.php?page=bahanBakar");
 
         }
-        $result = $this->bahanBakarDao->fetchOneBahanBakar($cid);
+       // $result = $this->bahanBakarDao->fetchOneBahanBakar($cid);
         include_once 'CUD/updateBahanBakar.php';
     }
 

@@ -158,3 +158,5 @@ if (!isset($_SESSION['my_session'])) {
     <h6 align="right">Dibuat oleh Anthony, Efraim, dan Ray</h6>
 </footer>
 </html>
+<!-- js script -->
+<script src="js/command_script.js"></script>

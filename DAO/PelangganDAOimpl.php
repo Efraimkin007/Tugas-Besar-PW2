@@ -12,7 +12,7 @@ class PelangganDAOimpl
         return $result;
     }
 
-    public function fetchOnePelanggan($cid){
+    /*public function fetchOnePelanggan($cid){
         $link = PDOUtil::createConnection();
         $query = "SELECT * FROM pelangggan WHERE idPelanggan=?";
         $stmt = $link->prepare($query);
@@ -22,7 +22,7 @@ class PelangganDAOimpl
         $result = $stmt->fetchObject('Pelanggan');
         PDOUtil::closeConnection($link);
         return $result;
-    }
+    }*/
 
     public function addPelanggan(Pelanggan $pelanggan){
         $link = PDOUtil::createConnection();
@@ -43,7 +43,7 @@ class PelangganDAOimpl
     }
 
     public function deletePelanggan($delete){
-        $pelanggan = fetchOnePelanggan($delete);
+        //$pelanggan = fetchOnePelanggan($delete);
         $link = PDOUtil::createConnection();
         $query = "DELETE FROM pelangggan WHERE idPelangggan=?";
         $stmt = $link->prepare($query);
